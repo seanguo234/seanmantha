@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+
+<div class="video-container">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="https://res.cloudinary.com/ppijnvds/video/upload/v1782829467/home1080_jhwtac.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="dark-overlay" class="overlay"></div>
+
+    <div class="hero-text">
+        <div id="text-state-3" class="text-block active">
+            <h1>Sean<br>& <br>Sam</h1>
+            <p>26/12/2026</p>
+        </div>
+        <div id="text-state-2" class="text-block">
+            <h1>Location</h1>
+            <p>FLOAT HK</p>
+        </div>
+        <div id="text-state-1" class="text-block">
+          <h1>Hotels</h1>
+          <!-- <p>Capturing the beautiful moments</p> -->
+        </div>
+        <div id="text-state-4" class="text-block"><h1>Dress Code</h1>
+          <div class="slice-image-grid">
+            <img src="images/photo1.jpg" alt="Wedding Detail 1">
+            <img src="images/photo2.jpg" alt="Wedding Detail 2">
+            <img src="images/photo3.jpg" alt="Wedding Detail 3">
+          </div>
+        </div>
+
+        <div id="text-state-5" class="text-block"><h1>Program</h1></div>
+    </div>
+
+    <button id="unmute-btn">🔊</button>
+    <button id = "home" class="jump-btn home" data-slice="2">🏠</button>
+<div class="bottom-controls">
+    <button class="jump-btn" data-slice="0">Accomodation</button>
+    <button class="jump-btn" data-slice="1">Time & Place</button>
+    <button class="jump-btn" data-slice="3">Dress Code</button>
+    <button class="jump-btn" data-slice="4">Program</button>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

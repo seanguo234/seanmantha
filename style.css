@@ -1,0 +1,223 @@
+/* ==========================================================================
+   1. CORE RESET (Fixes default browser spacing & borders)
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Makes width/height calculations include padding */
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;      /* Ensures the page takes up the full screen height */
+  overflow-x: hidden;     /* Prevents awkward horizontal side-scrolling */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;       /* Improves text readability */
+  background-color: #000; /* Good default if you are running a full-screen video */
+  color: #fff;
+}
+/* ==========================================================================
+Text style
+   ========================================================================== */
+.hero-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;  /* Ensures everything stacks beautifully */
+  justify-content: center; /* Horizontally centers the text wrapper */
+  align-items: center;     /* Vertically centers the text wrapper */
+  z-index: 5;              
+  pointer-events: none;    
+}
+
+/* Elegant Typography Styles */
+.hero-text h1 {
+  font-family: "Didot", "Bodoni MT", "Cinzel", "Georgia", serif; /* Elegant, classic serif fonts */
+  font-size: 3rem;         /* Large and commanding on mobile */
+  font-weight: 300;        /* Light, crisp weight for an elegant feel */
+  letter-spacing: 4px;     /* Breathing room between letters */
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #ffffff;
+  /* Premium drop shadow to make text pop against any video backdrop */
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); 
+}
+
+.hero-text p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.85); /* Slightly softer white for visual hierarchy */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+/* ==========================================================================
+Image style
+   ========================================================================== */
+.slice-image-grid {
+  display: flex;
+  justify-content: center;
+  gap: 15px;         /* Spaces out the images cleanly */
+  margin-top: 25px;  /* Pushes images below the title text */
+  width: 100%;
+  max-width: 600px;  /* Keeps the row looking elegant on large screens */
+  padding: 0 20px;
+}
+
+/* Individual Image Styling */
+.slice-image-grid img {
+  width: calc(33.33% - 10px); /* Dynamically scales each image to a third of the width */
+  aspect-ratio: 3 / 4;        /* Forces a unified, clean portrait aspect ratio */
+  object-fit: cover;          /* Crops the image perfectly without stretching it */
+  border-radius: 8px;         /* Soft elegant rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Premium depth shadow */
+}
+
+/* Responsive fix: Stack them slightly differently if screens are extremely narrow */
+@media (max-width: 400px) {
+  .slice-image-grid {
+    gap: 8px;
+  }
+}
+
+/* ==========================================================================
+Video style
+   ========================================================================== */
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  z-index: 1; /* Change this from -1 to 1 */
+  transition: object-position 0.5s ease-in-out;
+}
+/* ==========================================================================
+Button style
+   ========================================================================== */
+#unmute-btn {
+  position: absolute;
+  top: 2vh;
+  right: 2vh;
+  z-index: 10; /* Keeps it above the video */
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#home {
+  position: absolute;
+  top: 2vh;
+  right: 10vh;
+  z-index: 10; /* Keeps it above the video */
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Bottom Navigation Bar Layout */
+.bottom-controls {
+  position: absolute;
+  bottom: 20vh; /* Sits cleanly above the physical phone bezel/home indicators */
+  left: 50%;
+  transform: translateX(-50%); /* Centers the entire bar horizontally */
+  width: 90%; /* Leaves a comfortable visual gap on the screen edges */
+  max-width: 500px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Divides space into 5 perfectly identical columns */
+  gap: 6px;
+  z-index: 10;
+}
+
+/* Updated Button Styles */
+.jump-btn {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 4px; /* Thin padding to make sure text doesn't overflow */
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Subtle accent block for the Home Button */
+.jump-btn.home {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  font-weight: 700;
+}
+
+/* Interactive touch response */
+.jump-btn:active {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0.95); /* Slight bounce feedback when tapped on mobile */
+}
+/* ==========================================================================
+Transition
+   ========================================================================== */
+
+/* Transparent Dark Overlay (hidden by default) */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust the 0.5 to make it darker or lighter */
+  z-index: 3; /* Sits over video but under text */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Turns the overlay on when this class is added via JS */
+.overlay.visible {
+  opacity: 1;
+}
+
+/* Individual text blocks setup */
+.text-block {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding: 0 40px;
+  opacity: 0;
+  visibility: hidden; /* Keeps it completely hidden when inactive */
+  transform: translateY(10px);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s;
+}
+
+/* The active class makes the text block visible */
+.text-block.active {
+  opacity: 1;
+  visibility: visible; /* Makes it instantly interactable/visible */
+  transform: translateY(0);
+}
