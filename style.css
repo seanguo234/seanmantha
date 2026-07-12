@@ -1,3 +1,20 @@
+/* Prevent mobile browsers from zooming in when images are double-tapped */
+.slice-image-grid img, 
+#dress-code-carousel-image {
+  touch-action: manipulation;
+  
+  /* Optional but highly recommended: stops mobile browsers from accidentally 
+     highlighting/selecting the image or popping up the "Copy/Save Image" menu 
+     if someone taps intensely fast */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+button, a {
+  touch-action: manipulation; /* prevent accidental double-tap zooming */
+}
+
 /* ==========================================================================
    1. CORE RESET (Fixes default browser spacing & borders)
    ========================================================================== */
@@ -11,10 +28,11 @@ html, body {
   width: 100%;
   min-height: 100vh;      /* Ensures the page takes up the full screen height */
   overflow-x: hidden;     /* Prevents awkward horizontal side-scrolling */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: "Times New Roman", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.5;       /* Improves text readability */
   background-color: #000; /* Good default if you are running a full-screen video */
   color: #fff;
+  -webkit-text-size-adjust: 100%;
 }
 /* ==========================================================================
 Text style
@@ -46,16 +64,83 @@ Text style
   text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); 
 }
 
-.hero-text p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 2rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.85); /* Slightly softer white for visual hierarchy */
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+.hero-text h2 {
+  font-family: "Times New Roman", "Bodoni MT", "Cinzel", "Georgia", serif; /* Elegant, classic serif fonts */
+  font-size: 2rem;         /* Large and commanding on mobile */
+  font-weight: 300;        /* Light, crisp weight for an elegant feel */
+  letter-spacing: 4px;     /* Breathing room between letters */
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #ffffff;
+  /* Premium drop shadow to make text pop against any video backdrop */
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); 
+}
+
+.hero-text h3 {
+  font-family: "Times New Roman", "Bodoni MT", "Cinzel", "Georgia", serif; /* Elegant, classic serif fonts */
+  font-size: 1.5rem;         
+  font-weight: 300;        
+  letter-spacing: 4px;     
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #ffffff;
+  /* Premium drop shadow to make text pop against any video backdrop */
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); 
 }
 
 
+.hero-text p {
+  font-family: "Times New Roman", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.85); /* Slightly softer white for visual hierarchy */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.ocean-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    gap: 0.85rem;
+    text-align: left;
+}
+
+.ocean-list li {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.ocean-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+/* Different bullet for each item */
+.ocean-list li:nth-child(1)::before {
+    background-image: url("scallop.svg");
+}
+
+.ocean-list li:nth-child(2)::before {
+    background-image: url("shell.svg");
+}
+
+.ocean-list li:nth-child(3)::before {
+    background-image: url("star.svg");
+}
+
+.ocean-list li:nth-child(4)::before {
+    background-image: url("scallop.svg");
+}
 /* ==========================================================================
 Image style
    ========================================================================== */
@@ -104,38 +189,58 @@ Video style
   height: 100vh;
   object-fit: cover;
   object-position: center;
-  z-index: 1; /* Change this from -1 to 1 */
+  z-index: 1; 
   transition: object-position 0.5s ease-in-out;
 }
+
 /* ==========================================================================
 Button style
    ========================================================================== */
-#unmute-btn {
+
+ /* Container that handles positioning on the screen */
+.top-right-controls {
   position: absolute;
-  top: 2vh;
-  right: 2vh;
-  z-index: 10; /* Keeps it above the video */
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: 1px solid white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 16px;
+  top: 2dvh;   /* Locks the container perfectly to the top right */
+  right: 2dvw;
+  z-index: 10;
+  display: flex;
+  flex-direction: row; /* Lines buttons up horizontally side-by-side */
+  gap: 8px;            /* Guarantees they always maintain a clean 8px safety space */
+  align-items: center;
 }
 
-#home {
+.top-left-controls {
   position: absolute;
-  top: 2vh;
-  right: 10vh;
-  z-index: 10; /* Keeps it above the video */
+  top: 2dvh;   /* Locks the container perfectly to the top right */
+  left: 2dvw;
+  z-index: 10;
+  display: flex;
+  flex-direction: row; /* Lines buttons up horizontally side-by-side */
+  gap: 8px;            /* Guarantees they always maintain a clean 8px safety space */
+  align-items: center;
+}
+
+/* Base button styling shared by both components */
+#unmute-btn, #home, #confused{
+  position: static; /* Removes absolute behavior so they follow the flex row grid */
   background: rgba(0, 0, 0, 0.6);
   color: white;
-  border: 1px solid white;
-  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 10px 16px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; /* Forces text like "Home" to stay on one single line */
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* Add an active tap response for premium touch feedback */
+#unmute-btn:active, #home:active {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(0.95);
 }
 
 /* Bottom Navigation Bar Layout */
@@ -152,7 +257,6 @@ Button style
   z-index: 10;
 }
 
-/* Updated Button Styles */
 .jump-btn {
   background: rgba(0, 0, 0, 0.7);
   color: #fff;
@@ -167,6 +271,17 @@ Button style
   user-select: none;
   transition: all 0.2s ease-in-out;
 }
+/* .shell-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;            
+  pointer-events: none;  
+  
+} */
+
 
 /* Subtle accent block for the Home Button */
 .jump-btn.home {
@@ -181,7 +296,7 @@ Button style
   transform: scale(0.95); /* Slight bounce feedback when tapped on mobile */
 }
 /* ==========================================================================
-Transition
+Transition & Text blocks
    ========================================================================== */
 
 /* Transparent Dark Overlay (hidden by default) */
@@ -206,13 +321,20 @@ Transition
 /* Individual text blocks setup */
 .text-block {
   position: absolute;
-  width: 100%;
+  max-width: 500px;
+  max-height: 70dvh;       
+  overflow-y: auto;        
+  -webkit-overflow-scrolling: touch; 
   text-align: center;
-  padding: 0 40px;
+  
+  /* FIXED WITH VIEWPORT UNITS:
+     Takes exactly 12% of the screen's current height for the top buffer zone */
+  padding: 5dvh 40px 0 40px; 
   opacity: 0;
-  visibility: hidden; /* Keeps it completely hidden when inactive */
+  visibility: hidden; 
   transform: translateY(10px);
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s;
+  pointer-events: auto; 
 }
 
 /* The active class makes the text block visible */
@@ -220,4 +342,145 @@ Transition
   opacity: 1;
   visibility: visible; /* Makes it instantly interactable/visible */
   transform: translateY(0);
+}
+
+/* ==========================================================================
+Carousel
+   ========================================================================== */
+
+.slice-image-carousel, .carousel-btn {
+  pointer-events: auto !important;
+}
+
+/* ==========================================================================
+Phone-specific edits
+   ========================================================================== */
+@media (max-height: 480px) and (orientation: landscape) {
+  
+  /* 1. Shrink title text sizes so they take up less vertical space */
+  .hero-text h1 {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+  }
+  
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+
+  /* 2. Adjust Carousel size inside Slice 4 to fit the tiny screen height */
+  #text-state-4 .slice-image-carousel {
+    gap: 0.5rem;
+  }
+
+  #dress-code-carousel-image {
+    max-width: 140px !important; /* Makes image shorter so buttons don't overlap */
+    aspect-ratio: 16 / 9;        /* Swaps to landscape image ratio for better fit */
+  }
+
+  .carousel-btn {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1rem !important;
+  }
+
+  /* 3. Slim down the bottom dock and push it tighter to the edge */
+  .bottom-controls {
+    bottom: 8px; 
+    max-width: 420px;
+    gap: 4px;
+  }
+
+  .jump-btn {
+    padding: 6px 2px;
+    font-size: 9px;
+  }
+
+  /* 4. Reposition Unmute button out of the way */
+  /* #unmute-btn {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 12px;
+  } */
+}
+/* ==========================================================================
+FAQ section 
+   ========================================================================== */
+
+/* Full-screen dark translucent backdrop */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background: rgba(0, 0, 0, 0.75); /* Dark opaque window */
+  z-index: 100; /* Keeps it above everything else, including buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Smooth fade transitions */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* When active, fade it in */
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* The compact modal window box */
+.modal-content {
+  background: #111; /* Sleek off-black card */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 30px 24px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-top: 0;         /* Removes default top whitespace */
+  margin-bottom: 20px;   /* Creates a clean gap above your scrollable questions */
+  padding-right: 20px;   /* Prevents the title text from crowding the close 'X' button */
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* Large X button position */
+.modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+  touch-action: manipulation;
+}
+
+.modal-close-btn:hover, .modal-close-btn:active {
+  opacity: 1;
+}
+
+/* Make internal modal text independently scrollable if it gets long */
+.modal-scroll-body {
+  margin-top: 15px;
+  max-height: 250px;
+  overflow-y: auto;
+  text-align: left;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #ddd;
 }

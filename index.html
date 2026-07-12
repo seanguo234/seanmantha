@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Wedding</title>
     <meta name="robots" content="noindex, nofollow">
     <link rel="stylesheet" href="style.css">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -20,39 +23,124 @@
     <div class="hero-text">
         <div id="text-state-3" class="text-block active">
             <h1>Sean<br>& <br>Sam</h1>
-            <p>26/12/2026</p>
+            <h2>26/12/2026</h2>
         </div>
+
         <div id="text-state-2" class="text-block">
-            <h1>Location</h1>
-            <p>FLOAT HK<br>Embark:Aberdeen Typhoon Shelter<br>Disembark: Aberdeen Typhoon Shelter (for party only)/ Central Pier No. 10 (for Harbour cruise)</p>
+            <h1>Dress Code</h1>
+            <div>
+                <ul class = "ocean-list">
+                    <li>Under the sea & stylish ocean creatures.</li>
+                    <li>We encourage you to go ALL OUT: be loud & creative!</li>
+                    <li>Mermaid treasures for best dressed.</li>
+                    <li>Please go light on makeup so the sea witch can read your face.</li>
+                </ul>
+                <br>
+                <div class="carousel" style="display: grid; grid-template-columns: auto 1fr auto; align-items: center; justify-items: center; gap: 0.75rem; width: 100%; padding: 0 10px;">
+                    <button id="carousel-prev" class="carousel-btn" type="button" aria-label="Previous image" style="width:44px; height:44px; font-size:1.2rem; border:none; border-radius:50%; background:rgba(255,255,255,0.95); cursor:pointer;">‹</button>
+
+                    <img id="dress-code-carousel-image" src="images/dresscode1.png" alt="Dress code 1" style="width:100%; max-width:280px; height:auto; aspect-ratio:3/4; object-fit:cover; border-radius:14px; box-shadow:0 10px 20px rgba(0,0,0,0.18);">
+
+                    <button id="carousel-next" class="carousel-btn" type="button" aria-label="Next image" style="width:44px; height:44px; font-size:1.2rem; border:none; border-radius:50%; background:rgba(255,255,255,0.95); cursor:pointer;">›</button>
+                </div>
+            </div>
         </div>
         <div id="text-state-1" class="text-block">
-          <h1>Hotels</h1>
-          <p>Recommend:<br>Central/Admiralty or TST area<br>Shuttle bus service available Admiralty <-> Aberdeen</p>
-          <!-- <p>Capturing the beautiful moments</p> -->
-        </div>
-        <div id="text-state-4" class="text-block"><h1>Dress Code</h1>
-          <div class="slice-image-grid">
-            <p>Stylish ocean creatures</p>
-            <img src="images/photo1.jpg" alt="Wedding Detail 1">
-            <img src="images/photo2.jpg" alt="Wedding Detail 2">
-            <img src="images/photo3.jpg" alt="Wedding Detail 3">
-          </div>
+            <h2>Accommodation</h2>
+            <ul class = "ocean-list">
+                    <li>For our overseas guests, welcome to Hong Kong!</li>
+                    <li>We recommend staying in the Central, Admiralty, Wan Chai or Tsim Sha Tsui area.</li>
+                    <li>A shuttle bus will be available to transport you from the city center to the boarding pier (details TBC)</li>
+                </ul>
+            <br><img id="dress-code-carousel-image" src="images/map1.png" alt="Map" style="width:100%; max-width:280px; height:auto; aspect-ratio:3/4; object-fit:cover; border-radius:14px; box-shadow:0 10px 20px rgba(0,0,0,0.18);">
+     
         </div>
 
-        <div id="text-state-5" class="text-block"><h1>Rundown</h1>
-        <p>5:00pm Reception<br>5:30pm Ceremony<br>6:00pm Photos<br>6:30-8:30pm Buffet dinner/Ceilidh<br>9:00pm-11:00pm Harbour cruise</p></div>
+        <div id="text-state-4" class="text-block">
+            <h2>Embarkation</h2>
+            <ul class="ocean-list">
+                <li><a href="https://maps.app.goo.gl/b5c9FzFqPrMpNN2j6" target="_blank" rel="noopener noreferrer" style="color: yellow;">Ap Lei Chau Sampan Pier #6</a></li>
+                <li>5-min walk from <a href="https://maps.app.goo.gl/fuy1NZ54ZqoNU8NM7" target="_blank" rel="noopener noreferrer" style="color: yellow;">Lei Tung MTR Exit A2</a></li>
+                <li>1-min walk from <a href="https://maps.app.goo.gl/U9hrSt2GDe9L1xqa9" target="_blank" rel="noopener noreferrer" style="color: yellow;">parking lot</a> (30HKD/hr)</li>
+            </ul>
+            <h2><br>Disembarkation</h2>
+            <ul class="ocean-list">
+                <li><a href="https://maps.app.goo.gl/b5c9FzFqPrMpNN2j6" target="_blank" rel="noopener noreferrer" style="color: yellow;">Ap Lei Chau Sampan Pier #6</a> (If you are not attending the Harbor cruise)</li>
+                <li><a href="https://maps.app.goo.gl/BejsBnWd8sf7HPpy9" target="_blank" rel="noopener noreferrer" style="color: yellow;">Central Pier #10</a> (If you would like to attend the Harbor cruise)</li>
+                <li>A ferry will take you from the pier to the party venue.</li>
+                <li>A shuttle bus will be available to transport you from the city center to the boarding pier (details TBC)</li>
+            </ul>
+
+        </div>
+
+        <div id="text-state-5" class="text-block">
+            <h1>Rundown</h1>
+            <table style="width:100%; max-width:360px; margin:0 auto; border-collapse:collapse; text-align:left;">
+                <thead>
+                    <tr>
+                        <th style="padding:8px 6px; font-weight:600;">Time</th>
+                        <th style="padding:8px 6px; font-weight:600;">Activity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:6px;">5:00–5:30pm</td>
+                        <td style="padding:6px;">Reception</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px;">5:30–6:00pm</td>
+                        <td style="padding:6px;">Ceremony</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px;">6:00–6:30pm</td>
+                        <td style="padding:6px;">Photos</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px;">6:30–8:30pm</td>
+                        <td style="padding:6px;">Buffet dinner / Dance floor</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px;">9:00–11:00pm</td>
+                        <td style="padding:6px;">Harbour cruise</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px;">All Night</td>
+                        <td style="padding:6px;">Drink bar; Sea witch reading</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <button id="unmute-btn">🔊</button>
-    <button id = "home" class="jump-btn home" data-slice="2">🏠</button>
-<div class="bottom-controls">
-    <button class="jump-btn" data-slice="0">Accomodation</button>
-    <button class="jump-btn" data-slice="1">Time & Place</button>
-    <button class="jump-btn" data-slice="3">Dress Code</button>
-    <button class="jump-btn" data-slice="4">Rundown</button>
-  </div>
+    <div class="top-right-controls">
+        <button id="unmute-btn">🔊</button>
+        <button id="home" class="jump-btn home" data-slice="2">🏠</button>
+    </div>
 
-<script src="script.js"></script>
+    <div class="top-left-controls">
+        <button id="confused">I'm confused</button>
+    </div>
+
+    <div class="bottom-controls">
+        <button class="jump-btn" data-slice="0">
+            Accommodation 
+            <!-- <object type="image/svg+xml" data="shell.svg" class="shell-bg"></object> -->
+        </button>
+        <button class="jump-btn" data-slice="1">Dress Code</button>
+        <button class="jump-btn" data-slice="3">Time & Place</button>
+        <button class="jump-btn" data-slice="4">Rundown</button>
+    </div>
+
+    <script src="script.js"></script>
+<div id="help-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button id="close-modal" class="modal-close-btn" aria-label="Close window">&times;</button>
+    
+    <h2>Questions?</h2>
+    <div class="modal-scroll-body">
+      <p>Please contact <a href="https://wa.me/85297051558" target="_blank" rel="noopener noreferrer" style="color: yellow;">Sean</a> or <a href="https://wa.me/85261684247" target="_blank" rel="noopener noreferrer" style="color: yellow;">Sam</a> directly for any questions or concerns.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
