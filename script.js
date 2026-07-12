@@ -120,3 +120,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+  // === DYNAMIC TEXT GRADIENT SCROLLING MASK LOGIC ===
+function checkTextOverflow() {
+  const textBlocks = document.querySelectorAll('.text-block');
+  
+  textBlocks.forEach(block => {
+    // Check if the actual content height is greater than the visible bounding box
+    const hasOverflow = block.scrollHeight > block.clientHeight;
+    
+    if (hasOverflow) {
+      block.classList.add('has-overflow');
+    } else {
+      block.classList.remove('has-overflow');
+    }
+  });
+}
+// 1. Run the layout test immediately when the document finishes building
+document.addEventListener('DOMContentLoaded', () => {
+  // Give transitions a split second to settle, then verify dimensions
+  setTimeout(checkTextOverflow, 200);
+
+  // 2. Clear the gradient overlay dynamically as the user scrolls to the bottom
+  document.querySelectorAll('.text-block').forEach(block => {
+    block.addEventListener('scroll', () => {
+      // Calculate how close the user is to hitting the baseline margin
+      const distanceToBottom = block.scrollHeight - block.scrollTop - block.clientHeight;
+      
+      // If within 15px of the bottom, clear the gradient mask entirely
+      if (distanceToBottom < 15) {
+        block.classList.remove('has-overflow');
+      } else if (block.scrollHeight > block.clientHeight) {
+        // If they scroll back up, pop the gradient hint back on screen
+        block.classList.add('has-overflow');
+      }
+    });
+  });
+});
+// 3. Recalculate dimensions cleanly if your user rotates their phone into landscape
+window.addEventListener('resize', checkTextOverflow);
+window.addEventListener('orientationchange', () => {
+  setTimeout(checkTextOverflow, 300);
+});

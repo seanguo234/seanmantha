@@ -246,7 +246,7 @@ Button style
 /* Bottom Navigation Bar Layout */
 .bottom-controls {
   position: absolute;
-  bottom: 20vh; /* Sits cleanly above the physical phone bezel/home indicators */
+  bottom: 15dvh; /* Sits cleanly above the physical phone bezel/home indicators */
   left: 50%;
   transform: translateX(-50%); /* Centers the entire bar horizontally */
   width: 90%; /* Leaves a comfortable visual gap on the screen edges */
@@ -322,7 +322,7 @@ Transition & Text blocks
 .text-block {
   position: absolute;
   max-width: 500px;
-  max-height: 70dvh;       
+  max-height: 80dvh;       
   overflow-y: auto;        
   -webkit-overflow-scrolling: touch; 
   text-align: center;
@@ -335,6 +335,15 @@ Transition & Text blocks
   transform: translateY(10px);
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s;
   pointer-events: auto; 
+  mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
+  transition: opacity 0.4s, transform 0.4s, mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
+}
+
+/* Dynamically injected ONLY when text overflows its boundaries */
+.text-block.has-overflow {
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 98%);
+  mask-image: linear-gradient(to bottom, black 75%, transparent 98%);
 }
 
 /* The active class makes the text block visible */
