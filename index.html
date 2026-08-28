@@ -43,6 +43,8 @@
 
                     <button id="carousel-next" class="carousel-btn" type="button" aria-label="Next image" style="width:44px; height:44px; font-size:1.2rem; border:none; border-radius:50%; background:rgba(255,255,255,0.95); cursor:pointer;">›</button>
                 </div>
+                <a id="dress-code-shop-link" href="#" target="_blank" rel="noopener noreferrer" style="display:none; color:yellow; margin-top:0.75rem;">Shop link (not sponsored!)</a>
+                
                 
             </div>
         </div>
@@ -133,6 +135,29 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        window.dressCodeShopLinks = [
+            { image: 'dresscode1.png', url: 'https://www.etsy.com/hk-en/listing/4501539363/mermaid-fantasy-dress-purple-sea-goddess?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-2-33&sr_prefetch=1&pf_from=search&frs=1&content_source=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%253ALTf55cb8fba4a115a6871ac4be63ff429b6a266c49&organic_search_click=1&logging_key=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%3ALTf55cb8fba4a115a6871ac4be63ff429b6a266c49' },
+            { image: 'dresscode2.png', url: 'https://www.etsy.com/hk-en/listing/4546675029/iridescent-white-fantasy-hat-pearl-lace?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-2-37&sr_prefetch=1&pf_from=search&pro=1&cns=1&local_signal_search=1&content_source=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%253ALTc3656b3a1606b005136ffaa8f886890ce4061e56&organic_search_click=1&logging_key=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%3ALTc3656b3a1606b005136ffaa8f886890ce4061e56' },
+            { image: 'dresscode3.png', url: 'https://www.etsy.com/hk-en/listing/4503244729/humpback-whale-print-maxi-dress-v-neck?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-2-47&sr_prefetch=1&pf_from=search&pro=1&frs=1&content_source=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%253ALT514521774e46e8333f22677ce9e6f89067bdc041&organic_search_click=1&logging_key=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%3ALT514521774e46e8333f22677ce9e6f89067bdc041' },
+            { image: 'dresscode4.png', url: 'https://www.etsy.com/hk-en/listing/4369737276/merman-mens-rash-guard-merman-cosplay?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-2-48&sr_prefetch=1&pf_from=search&content_source=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%253ALTc5c029b7557bb6ef6b395571d353e4a8e42c4c36&organic_search_click=1&logging_key=ade9289f-93fc-4e8e-b7bb-3cbae1c74022%3ALTc5c029b7557bb6ef6b395571d353e4a8e42c4c36' },
+            { image: 'dresscode5.png', url: 'https://www.amazon.com/dp/B09GPWR427/?coliid=IMEBJS82OEO6K&colid=2ELMRSPVA0LK4&ref_=list_c_wl_lv_ov_lig_dp_it&th=1&psc=1' },
+            { image: 'dresscode6.png', url: 'https://www.amazon.com/dp/B09LHF2N46/?coliid=IFXDF5SD8WXGK&colid=2ELMRSPVA0LK4&ref_=list_c_wl_lv_ov_lig_dp_it&th=1&psc=1' },
+            { image: 'dresscode7.png', url: 'https://www.amazon.com/dp/B08KJTB9PC/?coliid=I120YHQXS79UEH&colid=2ELMRSPVA0LK4&ref_=list_c_wl_lv_ov_lig_dp_it_im&th=1&psc=1' },
+            { image: 'dresscode8.png', url: 'https://www.amazon.com/Nicky-Bigs-Novelties-Plastic-Trident/dp/B0CQ9GQDGT/ref=pd_rhf_se_s_pd_sbs_rvi_d_sccl_2_10/147-2417304-1171223?pd_rd_w=2nw8m&content-id=amzn1.sym.6640a844-ab24-4352-ac9b-78899e683a5e&pf_rd_p=6640a844-ab24-4352-ac9b-78899e683a5e&pf_rd_r=ERFDX1C1G5AAMG7ZFYN0&pd_rd_wg=tUGnv&pd_rd_r=e1e70edb-22b6-43ca-84fa-26785718553e&pd_rd_i=B0CQ9GQDGT&psc=1' },
+            { image: 'dresscode9.png', url: 'https://www.etsy.com/hk-en/listing/4434163745/jellyfish-glowing-blue-skirt-dual-use?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-3-32&sr_prefetch=1&pf_from=search&content_source=03ae1089-c49b-46b7-b3a7-59582856839e%253ALT8a61db20f7aa78b74862fd2e6b07793679b2cd51&organic_search_click=1&logging_key=03ae1089-c49b-46b7-b3a7-59582856839e%3ALT8a61db20f7aa78b74862fd2e6b07793679b2cd51' },
+            { image: 'dresscode10.png', url: 'https://www.etsy.com/hk-en/listing/4317181191/french-green-painting-ruffles-vocation?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-3-51&sr_prefetch=1&pf_from=search&frs=1&sts=1&content_source=03ae1089-c49b-46b7-b3a7-59582856839e%253ALTaf69a48564fd7e62564c14f26f0c738254249c97&organic_search_click=1&logging_key=03ae1089-c49b-46b7-b3a7-59582856839e%3ALTaf69a48564fd7e62564c14f26f0c738254249c97' },
+            { image: 'dresscode11.png', url: 'https://www.etsy.com/hk-en/listing/820831587/ocean-waves-chiffon-cape-scarf-blue?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-3-54&sr_prefetch=1&pf_from=search&sts=1&content_source=03ae1089-c49b-46b7-b3a7-59582856839e%253ALTca2f422d43347efe48ad7f639f97694ee2dc41a6&organic_search_click=1&logging_key=03ae1089-c49b-46b7-b3a7-59582856839e%3ALTca2f422d43347efe48ad7f639f97694ee2dc41a6' },
+            { image: 'dresscode12.png', url: 'https://www.etsy.com/hk-en/listing/1530427640/shimmering-silver-mermaid-tail-costume?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-6-8&sr_prefetch=1&pf_from=search&pro=1&content_source=40d48e92-cdb2-4dd2-8ae6-14c283add356%253ALTf6ae55bd03b7ef9acc5e1ea2d55ae4c5aa56c74b&organic_search_click=1&logging_key=40d48e92-cdb2-4dd2-8ae6-14c283add356%3ALTf6ae55bd03b7ef9acc5e1ea2d55ae4c5aa56c74b' },
+            { image: 'dresscode13.png', url: 'https://www.etsy.com/hk-en/listing/1226110761/iridescent-mermaid-scale-corset-fantasy?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-5-27&sr_prefetch=1&pf_from=search&content_source=f0c76052-d3ea-42f3-9d1a-98737c3196b6%253ALTbc2630a3b9e40c27b3d8fa2018155c011a6991cc&organic_search_click=1&logging_key=f0c76052-d3ea-42f3-9d1a-98737c3196b6%3ALTbc2630a3b9e40c27b3d8fa2018155c011a6991cc' },
+            { image: 'dresscode14.png', url: 'https://www.etsy.com/hk-en/listing/1706014450/jellyfish-dark-blue-dress-skirt-dual-use?ls=s&ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=elegant+ocean+sea+creature+costume&ref=sr_gallery-1-8&sr_prefetch=1&pf_from=search&content_source=6db4acfa-0cd6-4ce2-8a25-511ee77ed632%253ALT46e01876c3355735d11d5b509c80c2eab75289ff&organic_search_click=1&logging_key=6db4acfa-0cd6-4ce2-8a25-511ee77ed632%3ALT46e01876c3355735d11d5b509c80c2eab75289ff' },
+            { image: 'dresscode15.png', url: '' },
+            { image: 'dresscode16.png', url: '' },
+            { image: 'dresscode17.jpg', url: '' },
+            { image: 'dresscode18.jpg', url: '' }
+        ];
+        
+    </script>
 <div id="help-modal" class="modal-overlay">
   <div class="modal-content">
     <button id="close-modal" class="modal-close-btn" aria-label="Close window">&times;</button>

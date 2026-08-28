@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const carouselImage = document.getElementById('dress-code-carousel-image');
   const prevBtn = document.getElementById('carousel-prev');
   const nextBtn = document.getElementById('carousel-next');
+  const shopLink = document.getElementById('dress-code-shop-link');
 
   // === 2. DATA STATES ===
   const positions = ["0%", "25%", "50%", "75%", "100%"];
@@ -17,8 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const carouselImages = [
     { src: 'images/dresscode1.png', alt: 'Dress code 1' },
     { src: 'images/dresscode2.png', alt: 'Dress code 2' },
-    { src: 'images/dresscode3.jpg', alt: 'Dress code 3' },
-    { src: 'images/dresscode4.jpg', alt: 'Dress code 4' }
+    { src: 'images/dresscode3.png', alt: 'Dress code 3' },
+    { src: 'images/dresscode4.png', alt: 'Dress code 4' },
+    { src: 'images/dresscode5.png', alt: 'Dress code 5' },
+    { src: 'images/dresscode6.png', alt: 'Dress code 6' },
+    { src: 'images/dresscode7.png', alt: 'Dress code 7' },
+    { src: 'images/dresscode8.png', alt: 'Dress code 8' },
+    { src: 'images/dresscode9.png', alt: 'Dress code 9' },
+    { src: 'images/dresscode10.png', alt: 'Dress code 10' },
+    { src: 'images/dresscode11.png', alt: 'Dress code 11' },
+    { src: 'images/dresscode12.png', alt: 'Dress code 12' },
+    { src: 'images/dresscode13.png', alt: 'Dress code 13' },
+    { src: 'images/dresscode14.png', alt: 'Dress code 14' },
+    { src: 'images/dresscode15.png', alt: 'Dress code 15' },
+    { src: 'images/dresscode16.png', alt: 'Dress code 16' },
+    { src: 'images/dresscode17.jpg', alt: 'Dress code 17' },
+    { src: 'images/dresscode18.jpg', alt: 'Dress code 18' }
   ];
   let carouselIndex = 0;
 
@@ -76,6 +91,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const image = carouselImages[carouselIndex];
     carouselImage.src = image.src;
     carouselImage.alt = image.alt;
+
+    if (shopLink) {
+      const shopLinkData = (window.dressCodeShopLinks || []).find(link =>
+        link.image === image.src.split('/').pop()
+      );
+      const shopUrl = shopLinkData && shopLinkData.url;
+
+      shopLink.href = shopUrl || '#';
+      shopLink.style.display = shopUrl ? 'inline-block' : 'none';
+    }
   }
 
   // Only bind carousel listeners if the elements actually exist on the page
